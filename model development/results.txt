@@ -1,0 +1,19 @@
+Random Forest accuracy ==>  0.9910991241717783
+Random Forest precision ==>  0.857928607340372
+Random Forest recall ==>  0.6650960493779084
+
+AdaBoost accuracy ==>  0.9780093570166046
+AdaBoost precision ==>  0.5200407435701553
+AdaBoost recall ==>  0.16944429084159218
+
+Neural Network accuracy ==>  0.975086232086209
+Neural Network precision ==>  nan
+Neural Network recall ==>  0.09843101825710522
+
+Voting Classifier accuracy ==>  0.9809995887146836
+Voting Classifier precision ==>  0.9180555555555555
+Voting Classifier recall ==>  0.16454744056543158
+
+Voting Classifier (soft) accuracy ==>  0.9809995887146836
+Voting Classifier (soft) precision ==>  0.9180555555555555
+Voting Classifier (soft) recall ==>  0.16454744056543158
