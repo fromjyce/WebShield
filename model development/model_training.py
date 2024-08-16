@@ -137,3 +137,44 @@ for i in range(0, K):
     voting_soft_accuracy_list.append(voting_accuracy)
     voting_soft_precision_list.append(voting_precision)
     voting_soft_recall_list.append(voting_recall)
+
+
+RF_accuracy = sum(rf_accuracy_list) / len(rf_accuracy_list)
+RF_precision = sum(rf_precision_list) / len(rf_precision_list)
+RF_recall = sum(rf_recall_list) / len(rf_recall_list)
+
+print("Random Forest accuracy ==> ", RF_accuracy)
+print("Random Forest precision ==> ", RF_precision)
+print("Random Forest recall ==> ", RF_recall)
+
+AB_accuracy = sum(ab_accuracy_list) / len(ab_accuracy_list)
+AB_precision = sum(ab_precision_list) / len(ab_precision_list)
+AB_recall = sum(ab_recall_list) / len(ab_recall_list)
+
+print("AdaBoost accuracy ==> ", AB_accuracy)
+print("AdaBoost precision ==> ", AB_precision)
+print("AdaBoost recall ==> ", AB_recall)
+
+NN_accuracy = sum(nn_accuracy_list) / len(nn_accuracy_list)
+NN_precision = sum(nn_precision_list) / len(nn_precision_list)
+NN_recall = sum(nn_recall_list) / len(nn_recall_list)
+
+print("Neural Network accuracy ==> ", NN_accuracy)
+print("Neural Network precision ==> ", NN_precision)
+print("Neural Network recall ==> ", NN_recall)
+
+voting_accuracy = sum(voting_accuracy_list) / len(voting_accuracy_list)
+voting_precision = sum(voting_precision_list) / len(voting_precision_list)
+voting_recall = sum(voting_recall_list) / len(voting_recall_list)
+
+print("Voting Classifier accuracy ==> ", voting_accuracy)
+print("Voting Classifier precision ==> ", voting_precision)
+print("Voting Classifier recall ==> ", voting_recall)
+
+voting_soft_accuracy = sum(voting_soft_accuracy_list) / len(voting_soft_accuracy_list)
+voting_soft_precision = sum(voting_soft_precision_list) / len(voting_soft_precision_list)
+voting_soft_recall = sum(voting_soft_recall_list) / len(voting_soft_recall_list)
+
+print("Voting Classifier (soft) accuracy ==> ", voting_soft_accuracy)
+print("Voting Classifier (soft) precision ==> ", voting_soft_precision)
+print("Voting Classifier (soft) recall ==> ", voting_soft_recall)
