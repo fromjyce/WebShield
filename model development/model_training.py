@@ -6,6 +6,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
+from sklearn.ensemble import VotingClassifier
 
 legitimate_df = pd.read_csv("structured_data_legitimate.csv")
 phishing_df = pd.read_csv("structured_data_phishing.csv")
@@ -60,3 +61,21 @@ X_5_test = X.iloc[index*4:]
 X_5_train = X.iloc[:index*4]
 Y_5_test = Y.iloc[index*4:]
 Y_5_train = Y.iloc[:index*4]
+
+X_train_list = [X_1_train, X_2_train, X_3_train, X_4_train, X_5_train]
+X_test_list = [X_1_test, X_2_test, X_3_test, X_4_test, X_5_test]
+
+Y_train_list = [Y_1_train, Y_2_train, Y_3_train, Y_4_train, Y_5_train]
+Y_test_list = [Y_1_test, Y_2_test, Y_3_test, Y_4_test, Y_5_test]
+
+def calculate_measures(TN, TP, FN, FP):
+    model_accuracy = (TP + TN) / (TP + TN + FN + FP)
+    model_precision = TP / (TP + FP)
+    model_recall = TP / (TP + FN)
+    return model_accuracy, model_precision, model_recall
+
+rf_accuracy_list, rf_precision_list, rf_recall_list = [], [], []
+ab_accuracy_list, ab_precision_list, ab_recall_list = [], [], []
+nn_accuracy_list, nn_precision_list, nn_recall_list = [], [], []
+voting_accuracy_list, voting_precision_list, voting_recall_list = [], [], []
+voting_soft_accuracy_list, voting_soft_precision_list, voting_soft_recall_list = [], [], []
