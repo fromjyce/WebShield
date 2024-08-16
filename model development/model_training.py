@@ -6,6 +6,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
+from joblib import dump
 from sklearn.ensemble import VotingClassifier
 
 legitimate_df = pd.read_csv("structured_data_legitimate.csv")
@@ -178,3 +179,23 @@ voting_soft_recall = sum(voting_soft_recall_list) / len(voting_soft_recall_list)
 print("Voting Classifier (soft) accuracy ==> ", voting_soft_accuracy)
 print("Voting Classifier (soft) precision ==> ", voting_soft_precision)
 print("Voting Classifier (soft) recall ==> ", voting_soft_recall)
+
+data = {'accuracy': [RF_accuracy, AB_accuracy, NN_accuracy, voting_accuracy, voting_soft_accuracy],
+        'precision': [RF_precision, AB_precision, NN_precision, voting_precision, voting_soft_precision],
+        'recall': [RF_recall, AB_recall, NN_recall, voting_recall, voting_soft_recall]
+        }
+
+index = ['RF', 'AB', 'NN', 'VOTING', 'VOTING-SOFT']
+
+df_results = pd.DataFrame(data=data, index=index)
+
+ax = df_results.plot.bar(rot=0)
+plt.show()
+
+
+
+dump(rf_model, 'random_forest_model.joblib')
+dump(ab_model, 'adaboost_model.joblib')
+dump(nn_model, 'neural_network_model.joblib')
+dump(voting_clf, 'voting_classifier_model.joblib')
+dump(voting_clf_soft, 'voting_classifier_soft_model.joblib')
