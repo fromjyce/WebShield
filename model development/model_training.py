@@ -79,3 +79,15 @@ ab_accuracy_list, ab_precision_list, ab_recall_list = [], [], []
 nn_accuracy_list, nn_precision_list, nn_recall_list = [], [], []
 voting_accuracy_list, voting_precision_list, voting_recall_list = [], [], []
 voting_soft_accuracy_list, voting_soft_precision_list, voting_soft_recall_list = [], [], []
+
+voting_clf = VotingClassifier(estimators=[
+    ('rf', rf_model),
+    ('ab', ab_model),
+    ('nn', nn_model)
+], voting='hard')
+
+voting_clf_soft = VotingClassifier(estimators=[
+    ('rf', rf_model),
+    ('ab', ab_model),
+    ('nn', nn_model)
+], voting='soft')
