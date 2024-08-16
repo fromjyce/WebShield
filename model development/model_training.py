@@ -91,3 +91,49 @@ voting_clf_soft = VotingClassifier(estimators=[
     ('ab', ab_model),
     ('nn', nn_model)
 ], voting='soft')
+
+for i in range(0, K):
+    # ----- RANDOM FOREST ----- #
+    rf_model.fit(X_train_list[i], Y_train_list[i])
+    rf_predictions = rf_model.predict(X_test_list[i])
+    tn_rf, fp_rf, fn_rf, tp_rf = confusion_matrix(y_true=Y_test_list[i], y_pred=rf_predictions).ravel()
+    rf_accuracy, rf_precision, rf_recall = calculate_measures(tn_rf, tp_rf, fn_rf, fp_rf)
+    rf_accuracy_list.append(rf_accuracy)
+    rf_precision_list.append(rf_precision)
+    rf_recall_list.append(rf_recall)
+
+    # ----- ADABOOST ----- #
+    ab_model.fit(X_train_list[i], Y_train_list[i])
+    ab_predictions = ab_model.predict(X_test_list[i])
+    tn_ab, fp_ab, fn_ab, tp_ab = confusion_matrix(y_true=Y_test_list[i], y_pred=ab_predictions).ravel()
+    ab_accuracy, ab_precision, ab_recall = calculate_measures(tn_ab, tp_ab, fn_ab, fp_ab)
+    ab_accuracy_list.append(ab_accuracy)
+    ab_precision_list.append(ab_precision)
+    ab_recall_list.append(ab_recall)
+
+    # ----- NEURAL NETWORK ----- #
+    nn_model.fit(X_train_list[i], Y_train_list[i])
+    nn_predictions = nn_model.predict(X_test_list[i])
+    tn_nn, fp_nn, fn_nn, tp_nn = confusion_matrix(y_true=Y_test_list[i], y_pred=nn_predictions).ravel()
+    nn_accuracy, nn_precision, nn_recall = calculate_measures(tn_nn, tp_nn, fn_nn, fp_nn)
+    nn_accuracy_list.append(nn_accuracy)
+    nn_precision_list.append(nn_precision)
+    nn_recall_list.append(nn_recall)
+
+    # ----- VOTING CLASSIFIER ----- #
+    voting_clf.fit(X_train_list[i], Y_train_list[i])
+    voting_predictions = voting_clf.predict(X_test_list[i])
+    tn_vclf, fp_vclf, fn_vclf, tp_vclf = confusion_matrix(y_true=Y_test_list[i], y_pred=voting_predictions).ravel()
+    voting_accuracy, voting_precision, voting_recall = calculate_measures(tn_vclf, tp_vclf, fn_vclf, fp_vclf)
+    voting_accuracy_list.append(voting_accuracy)
+    voting_precision_list.append(voting_precision)
+    voting_recall_list.append(voting_recall)
+
+    # ----- VOTING CLASSIFIER SOFT ----- #
+    voting_clf_soft.fit(X_train_list[i], Y_train_list[i])
+    voting_predictions_soft = voting_clf_soft.predict(X_test_list[i])
+    tn_vclfs, fp_vclfs, fn_vclfs, tp_vclfs = confusion_matrix(y_true=Y_test_list[i], y_pred=voting_predictions_soft).ravel()
+    voting_accuracy_s, voting_precision_s, voting_recall_s = calculate_measures(tn_vclfs, tp_vclfs, fn_vclfs, fp_vclfs)
+    voting_soft_accuracy_list.append(voting_accuracy)
+    voting_soft_precision_list.append(voting_precision)
+    voting_soft_recall_list.append(voting_recall)
