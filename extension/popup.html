@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Popup Example</title>
   <style>
+
+    html {
+      background: none;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      background: none;
     }
 
     .popup-container {
@@ -16,8 +22,7 @@
       align-items: center;
       padding: 10px;
       width: 300px;
-      background-color: #f0f0f0; 
-      border-radius: 50px; 
+      background-color: #343434;  
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
@@ -39,26 +44,30 @@
 
     .text-small {
       font-size: 12px; 
-      color: #666;
+      color: #848482;
       margin: 0;
+    }
+
+    .text-small:hover {
+      color: #f6f6f6;
     }
 
     .text-medium {
       font-size: 16px;
-      color: #333;
+      color: #C60C30;
       margin: 5px 0;
     }
 
     .text-link {
-      font-size: 12px;
-      color: #1a73e8;
-      text-decoration: underline;
-      cursor: pointer;
-      margin: 0;
+      font-size: 12px; /* Small text size for link */
+      color: #848482; /* Link color */
+      text-decoration: none; /* Underline text */
+      cursor: pointer; /* Pointer cursor on hover */
+      margin: 0; /* Remove default margin */
     }
 
     .text-link:hover {
-      color: #0c63e4;
+      color: #f6f6f6; /* Darker color on hover */
     }
   </style>
 </head>
@@ -68,9 +77,9 @@
       <img src="icon.png" alt="Icon" class="popup-icon">
     </div>
     <div class="text-container">
-      <p class="text-small">PhishAlert</p>
-      <p class="text-medium">Alert: This might be phishing</p>
-      <p class="text-link" id="visit-site">Visit site</p>
+      <p class="text-small"><strong>WebShield</strong></p>
+      <p class="text-medium"><strong>Alert! </strong>This might be phishing</p>
+      <p class="text-link" id="visit-site"><strong>Check Out Our Site</strong></p>
     </div>
   </div>
 <script src="popup.js"></script>
