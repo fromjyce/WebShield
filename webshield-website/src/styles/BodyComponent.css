@@ -1,0 +1,67 @@
+.left-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    height: 100vh;
+}
+
+
+.right-half {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+
+.yellow-box {
+    background-color: #ffeb3b;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%; 
+    margin-bottom: 20px; 
+}
+
+
+.input-box {
+    width: 60%;
+}
+
+button {
+    margin-top: 0;
+}
+
+
+.recent-submissions-heading {
+    color: #343a40;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.lines-paragraph {
+        font-size: 1.3rem;
+}
+
+.text-link {
+    color: #007bff; 
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+.box {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+h2, h3 {
+    color: #343a40;
+}
+
+.submit-paragraph {
+    font-size: 1.3rem;
+}
