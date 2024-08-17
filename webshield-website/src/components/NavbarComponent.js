@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../styles/NavbarComponent.css";
 import BrandLogo from "../assets/brand_logo.png";
 
@@ -20,12 +21,8 @@ function NavbarComponent() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home" className="nav-link">
-            Home
-          </Nav.Link>
-          <Nav.Link href="#phishsearch" className="nav-link">
-            PhishSearch
-          </Nav.Link>
+           <Nav.Link as={Link} to="/" className="nav-link">Home</Nav.Link>
+          <Nav.Link as={Link} to="/phishsearch" className="nav-link">PhishSearch</Nav.Link>
         </Nav>
         <Form inline className="ml-auto d-flex align-items-center">
           <FormControl type="text" placeholder="Username" className="mr-2" />
@@ -34,7 +31,9 @@ function NavbarComponent() {
             placeholder="Password"
             className="mr-2"
           />
-          <Button  className="login-button" variant="outline-light">Login</Button>
+          <Button className="login-button" variant="outline-light">
+            Login
+          </Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>
