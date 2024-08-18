@@ -73,4 +73,4 @@ All the code and resources in this repository are licensed under the GNU General
 
 ## My Social Profiles:
 
-- [**LinkedIn**](https://www.linkedin.com/in/jayashrek/)
+- [**LINKEDIN**](https://www.linkedin.com/in/jayashrek/)
