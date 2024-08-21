@@ -6,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 from features import WebsiteFeatures
 
+#
+
 app = FastAPI()
 
 model = joblib.load("C:/Users/jaya2/Visual Code/Phishing-Website-Detection/backend/models/random_forest_model.joblib")
